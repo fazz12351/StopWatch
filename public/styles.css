@@ -1,0 +1,55 @@
+body {
+    color: white;
+    background-color: black;
+    text-align: center;
+}
+
+.Timer {
+    width: 100%;
+    margin-top: 15%;
+    border: 1px solid white;
+}
+
+.Hours,
+.Minutes,
+.Seconds,
+.split {
+    font-size: 7rem;
+    display: inline-block;
+}
+
+.minutes {
+    border: 1px solid blue;
+
+}
+
+.hours {
+    border: 1px solid green;
+}
+
+.restart {
+    border: 1px solid red;
+}
+
+
+.textHours,
+.textMinutes,
+.textSeconds {
+
+    display: none;
+
+}
+
+form {
+    display: inline-block;
+}
+
+.TimeOutPut {
+    padding: 10px;
+    ;
+    font-size: 2rem;
+}
+
+.interactions{
+    padding: 10px;;
+}
