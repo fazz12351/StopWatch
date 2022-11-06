@@ -10,9 +10,17 @@ let restartBtn = document.querySelector(".Restart")
 let textarea = document.querySelector(".textSeconds");
 let textareaMin = document.querySelector(".textMinutes");
 let textareaHours = document.querySelector(".textHours");
+let CurrentHours = document.querySelector(".CurrentHours")
+let CurrentMinutes = document.querySelector(".CurrentMinutes")
+let CurrentSeconds = document.querySelector(".CurrentSeconds")
+let MuteButton = document.querySelector(".mute")
 let currentVol = 0.1;
-let maxSound = 1;
-let minSound = 0
+
+
+
+
+
+
 
 let pause = false;
 let restart = false;
@@ -21,12 +29,8 @@ let clicked = 0;
 const audio = new Audio("audio/clock.wav")
 
 function setup() {
-    audio.volume = currentVol;
-    if (currentVol >= maxSound) {
-        currentVol = maxSound
-    } else if (currentVol <= minSound) {
-        currentVol = minSound;
-    }
+    audio.volume=currentVol;
+
 }
 
 
@@ -65,6 +69,14 @@ function timer() {
     }, 1000)
 }
 
+function CurrentTime() {
+    let today = new Date();
+    CurrentHours.textContent = today.getHours();
+    CurrentMinutes.textContent = today.getMinutes();
+    CurrentSeconds.textContent = today.getSeconds();
+
+}
+
 
 function buttonPressed() {
 
@@ -72,9 +84,9 @@ function buttonPressed() {
     if (pause == false) {
         audio.play();
         pauseBtn.addEventListener("click", function () {
-
-            pause = true
+            pause=true;
             pauseBtn.textContent = "Play"
+            
         })
     }
 
@@ -96,12 +108,18 @@ function buttonPressed() {
         hours = 0;
     })
 
-    document.addEventListener("keydown", function (e) {
-        if (e.key == "ArrowUp") {
-            currentVol += 0.1;
-        } else if (e.key == "ArrowDown") {
-            currentVol -= 0.1;
-        }
+    // document.addEventListener("keydown", function (e) {
+    //     if (e.key == "ArrowUp") {
+    //         currentVol += 0.1;
+    //     } else if (e.key == "ArrowDown") {
+    //         currentVol -= 0.1;
+    //     }
+    // })
+
+
+    MuteButton.addEventListener("click", function () {
+        
+        
     })
 
 
@@ -109,10 +127,15 @@ function buttonPressed() {
 
 
 
+
 }
+
+
 setInterval(function () {
     buttonPressed();
     setup();
+    CurrentTime();
+    
 
 }, 1000)
 

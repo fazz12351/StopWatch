@@ -17,7 +17,6 @@ let time = [];
 
 
 app.get("/", function (req, res) {
-    console.log(time)
     res.render("home", {
         hours: hours,
         minutes: minutes,
@@ -46,3 +45,5 @@ app.post("/save", function (req, res) {
 app.listen(3000, function () {
     console.log("server is running")
 })
+
+

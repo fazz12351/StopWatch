@@ -53,3 +53,18 @@ form {
 .interactions{
     padding: 10px;;
 }
+
+.CurrentTime{
+    margin-top: 10px;;
+    
+    display: inline-block;
+}
+
+.Top-Container{
+    margin-left: 10px;;
+    margin-top: 20px;;
+    text-align: center;
+    width: 10%;
+    border: 1px solid white;
+    border-radius: 10px;;
+}

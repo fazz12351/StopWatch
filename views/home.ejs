@@ -1,27 +1,39 @@
 <%-include("partials/header.ejs")-%>
-
-
-<div class="Timer">
-    <p name="Hours" class="Hours">0</p>
-    <p class="split">:</p>
-    <p class="Minutes">0</p>
-    <p class="split">:</p>
-    <p class="Seconds">0</p>
-</div>
-
-<div class="interactions"> 
-<button class="Pause btn btn-warning">Pause</button>
-<button class="Restart btn btn-danger">Restart</button>
-
-<form  action="/save" method="post">
-    <button class="btn btn-success" type="submit">save</button>
-    <textarea class="textHours" name="Hours" id="" cols="3" rows="1" meth></textarea>
-    <textarea class="textMinutes" name="Minutes" id="" cols="3" rows="1" meth></textarea>
-    <textarea class="textSeconds" name="Seconds" id="" cols="3" rows="1" meth></textarea>
-
-</form>
+<div class="Top-Container">
+    <p class="CurrentTime CurrentHours">0</p>
+    <p class="CurrentTime">:</p>
+    <p class="CurrentTime CurrentMinutes">0</p>
+    <p class="CurrentTime">:</p>
+    <p class="CurrentTime CurrentSeconds">0</p>
 
 </div>
+
+
+<div class="Middle-Container">
+    <div class="Timer">
+        <p name="Hours" class="Hours">0</p>
+        <p class="split">:</p>
+        <p class="Minutes">0</p>
+        <p class="split">:</p>
+        <p class="Seconds">0</p>
+    </div>
+</div>
+
+<div class="interactions">
+    <button class="Pause btn btn-warning">Pause</button>
+    <button class="Restart btn btn-danger">Restart</button>
+
+    <form action="/save" method="post">
+        <button class="btn btn-success" type="submit">save</button>
+        <textarea class="textHours" name="Hours" id="" cols="3" rows="1" meth></textarea>
+        <textarea class="textMinutes" name="Minutes" id="" cols="3" rows="1" meth></textarea>
+        <textarea class="textSeconds" name="Seconds" id="" cols="3" rows="1" meth></textarea>
+
+    </form>
+
+</div>
+
+<button class="mute">Mute</button>
 
 
 <% for(var i=0;i<times.length;i++){%>
