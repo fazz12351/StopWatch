@@ -14,6 +14,12 @@ let CurrentHours = document.querySelector(".CurrentHours")
 let CurrentMinutes = document.querySelector(".CurrentMinutes")
 let CurrentSeconds = document.querySelector(".CurrentSeconds")
 let MuteButton = document.querySelector(".mute")
+let setHours = document.querySelector(".setHours");
+let setMinutes = document.querySelector(".setMinutes");
+let setSeconds = document.querySelector(".setSeconds");
+
+
+
 let currentVol = 0.1;
 
 
@@ -22,14 +28,18 @@ let currentVol = 0.1;
 
 
 
-let pause = false;
+
+
+let pause = true;
 let restart = false;
 let clicked = 0;
 
 const audio = new Audio("audio/clock.wav")
+const alarm = new Audio("audio/alarm.wav")
 
 function setup() {
-    audio.volume=currentVol;
+
+    audio.volume = currentVol;
 
 }
 
@@ -75,6 +85,7 @@ function CurrentTime() {
     CurrentMinutes.textContent = today.getMinutes();
     CurrentSeconds.textContent = today.getSeconds();
 
+
 }
 
 
@@ -84,9 +95,9 @@ function buttonPressed() {
     if (pause == false) {
         audio.play();
         pauseBtn.addEventListener("click", function () {
-            pause=true;
+            pause = true;
             pauseBtn.textContent = "Play"
-            
+
         })
     }
 
@@ -99,6 +110,10 @@ function buttonPressed() {
     }
 
     restartBtn.addEventListener("click", function () {
+        alarm.pause();
+        setHours.textContent = "";
+        setMinutes.textContent = "";
+        setSeconds.textContent = ""
         border.classList.add("restart")
         setTimeout(function () {
             border.classList.remove("restart")
@@ -117,10 +132,10 @@ function buttonPressed() {
     // })
 
 
-    MuteButton.addEventListener("click", function () {
-        
-        
-    })
+    // MuteButton.addEventListener("click", function () {
+
+
+    // })
 
 
 
@@ -131,11 +146,34 @@ function buttonPressed() {
 }
 
 
+
+function setTimers() {
+    let HoursSet = parseInt(setHours.textContent);
+    let MinutesSet = parseInt(setMinutes.textContent)
+    let SecondsSet = parseInt(setSeconds.textContent)
+    if (HoursSet == hours && MinutesSet == minutes && seconds == SecondsSet) {
+        pause = true;
+        alarm.play();
+        setSeconds.classList.add("restart")
+        setMinutes.classList.add("restart")
+        setHours.classList.add("restart")
+
+    }
+
+
+}
+
+
+
+
+
 setInterval(function () {
+
     buttonPressed();
     setup();
     CurrentTime();
-    
+    setTimers();
+
 
 }, 1000)
 

@@ -15,13 +15,24 @@ let hours = 0;
 let pause = false;
 let time = [];
 
+let SWHours=""
+let SWMinutes=""
+let SWSeconds=""
+
+
+
 
 app.get("/", function (req, res) {
     res.render("home", {
         hours: hours,
         minutes: minutes,
         seconds: seconds,
-        times: time
+        times: time,
+        SWHours:SWHours,
+        SWMinutes:SWMinutes,
+        SWSeconds:SWSeconds
+
+
     })
 
 })
@@ -39,6 +50,18 @@ app.post("/save", function (req, res) {
     time.push(req.body);
     res.redirect("/")
 
+})
+
+
+app.post("/setTimer",function(req,res){
+    SWHours=req.body.Hours;
+    SWMinutes=req.body.Minutes;
+    SWSeconds=req.body.Seconds;
+    console.log(SWHours);
+    console.log(SWMinutes)
+    console.log(SWSeconds)
+
+    res.redirect("/")
 })
 
 

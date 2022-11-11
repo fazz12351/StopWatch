@@ -20,7 +20,7 @@
 </div>
 
 <div class="interactions">
-    <button class="Pause btn btn-warning">Pause</button>
+    <button class="Pause btn btn-warning">Play</button>
     <button class="Restart btn btn-danger">Restart</button>
 
     <form action="/save" method="post">
@@ -33,7 +33,24 @@
 
 </div>
 
-<button class="mute">Mute</button>
+<form action="/setTimer" method="post">
+    <input type="number" name="Hours" value="0" placeholder="Set Hours">
+    <input type="number" name="Minutes" value="0" placeholder="Set Minutes">
+    <input type="number" name="Seconds" value="0" placeholder="Set Seconds">
+    <button type="submit">Submit</button>
+
+</form>
+
+
+
+<div class="setTimer">
+    <p class="setHours textHours"><%=SWHours%></p>
+    <p class="setMinutes textMinutes"><%=SWMinutes%></p>
+    <p class="setSeconds textSeconds"><%=SWSeconds%></p>
+</div>
+
+
+
 
 
 <% for(var i=0;i<times.length;i++){%>
