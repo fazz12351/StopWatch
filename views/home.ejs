@@ -16,12 +16,19 @@
         <p class="Minutes">0</p>
         <p class="split">:</p>
         <p class="Seconds">0</p>
+        <p>Timer Set For:</p>
+        <p class="TimerH Hours"></p>
+        <p class="Tsplit">:</p>
+        <p class="TimerM Minutes"></p>
+        <p class="Tsplit">:</p>
+
+        <p class="TimerS Seconds"></p>
     </div>
 </div>
 
 <div class="interactions">
     <button class="Pause btn btn-warning">Play</button>
-    <button class="Restart btn btn-danger">Restart</button>
+    <button class="Restart btn btn-danger">Reset</button>
 
     <form action="/save" method="post">
         <button class="btn btn-success" type="submit">save</button>
@@ -33,11 +40,11 @@
 
 </div>
 
-<form action="/setTimer" method="post">
+<form class="setTimer" action="/setTimer" method="post">
     <input type="number" name="Hours" value="0" placeholder="Set Hours">
     <input type="number" name="Minutes" value="0" placeholder="Set Minutes">
     <input type="number" name="Seconds" value="0" placeholder="Set Seconds">
-    <button type="submit">Submit</button>
+    <button class="btn btn-light" type="submit">Submit</button>
 
 </form>
 
@@ -48,9 +55,6 @@
     <p class="setMinutes textMinutes"><%=SWMinutes%></p>
     <p class="setSeconds textSeconds"><%=SWSeconds%></p>
 </div>
-
-
-
 
 
 <% for(var i=0;i<times.length;i++){%>

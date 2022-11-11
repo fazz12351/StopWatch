@@ -69,3 +69,15 @@ form {
     border: 1px solid white;
     border-radius: 10px;;
 }
+
+.setTimer input{
+    height:40px;
+    border-radius: 1px;
+}
+.btn{
+    margin-bottom: 4px;;
+} 
+.TimerH,.TimerM,.TimerS,.Tsplit{
+    font-size: 1rem;
+    display: inline-block;
+}

@@ -57,9 +57,6 @@ app.post("/setTimer",function(req,res){
     SWHours=req.body.Hours;
     SWMinutes=req.body.Minutes;
     SWSeconds=req.body.Seconds;
-    console.log(SWHours);
-    console.log(SWMinutes)
-    console.log(SWSeconds)
 
     res.redirect("/")
 })

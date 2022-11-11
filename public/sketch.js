@@ -18,24 +18,15 @@ let setHours = document.querySelector(".setHours");
 let setMinutes = document.querySelector(".setMinutes");
 let setSeconds = document.querySelector(".setSeconds");
 
-
+const audio = new Audio("audio/clock.wav")
+const alarm = new Audio("audio/alarm.wav")
 
 let currentVol = 0.1;
-
-
-
-
-
-
-
-
-
 let pause = true;
 let restart = false;
 let clicked = 0;
 
-const audio = new Audio("audio/clock.wav")
-const alarm = new Audio("audio/alarm.wav")
+
 
 function setup() {
 
@@ -71,6 +62,9 @@ function timer() {
         textarea.textContent = seconds
         textareaMin.textContent = minutes;
         textareaHours.textContent = hours;
+
+       
+
 
 
 
@@ -123,42 +117,40 @@ function buttonPressed() {
         hours = 0;
     })
 
-    // document.addEventListener("keydown", function (e) {
-    //     if (e.key == "ArrowUp") {
-    //         currentVol += 0.1;
-    //     } else if (e.key == "ArrowDown") {
-    //         currentVol -= 0.1;
-    //     }
-    // })
-
-
-    // MuteButton.addEventListener("click", function () {
-
-
-    // })
-
-
-
-
-
-
-
 }
 
 
 
 function setTimers() {
+    let TimerS=document.querySelector(".TimerS")
+    let TimerM=document.querySelector(".TimerM")
+    let TimerH=document.querySelector(".TimerH")
     let HoursSet = parseInt(setHours.textContent);
     let MinutesSet = parseInt(setMinutes.textContent)
     let SecondsSet = parseInt(setSeconds.textContent)
+   
     if (HoursSet == hours && MinutesSet == minutes && seconds == SecondsSet) {
         pause = true;
         alarm.play();
-        setSeconds.classList.add("restart")
-        setMinutes.classList.add("restart")
-        setHours.classList.add("restart")
+        border.classList.add("restart");
 
     }
+
+  if(HoursSet>=0||MinutesSet>=0||SecondsSet>=0){
+    TimerS.textContent=SecondsSet;
+    TimerM.textContent=MinutesSet;
+    TimerH.textContent=HoursSet;
+ 
+    
+    
+  }
+  else{
+    TimerS.textContent="";
+    TimerM.textContent="";
+    TimerH.textContent="";
+  }
+
+    
 
 
 }
@@ -168,12 +160,10 @@ function setTimers() {
 
 
 setInterval(function () {
-
+    setTimers();
     buttonPressed();
     setup();
     CurrentTime();
-    setTimers();
-
 
 }, 1000)
 
