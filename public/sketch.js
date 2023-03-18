@@ -63,7 +63,7 @@ function timer() {
         textareaMin.textContent = minutes;
         textareaHours.textContent = hours;
 
-       
+
 
 
 
@@ -122,13 +122,14 @@ function buttonPressed() {
 
 
 function setTimers() {
-    let TimerS=document.querySelector(".TimerS")
-    let TimerM=document.querySelector(".TimerM")
-    let TimerH=document.querySelector(".TimerH")
+    let TimerS = document.querySelector(".TimerS")
+    let TimerM = document.querySelector(".TimerM")
+    let TimerH = document.querySelector(".TimerH")
+    let Tsplit = document.querySelectorAll(".Tsplit")
     let HoursSet = parseInt(setHours.textContent);
     let MinutesSet = parseInt(setMinutes.textContent)
     let SecondsSet = parseInt(setSeconds.textContent)
-   
+
     if (HoursSet == hours && MinutesSet == minutes && seconds == SecondsSet) {
         pause = true;
         alarm.play();
@@ -136,21 +137,26 @@ function setTimers() {
 
     }
 
-  if(HoursSet>=0||MinutesSet>=0||SecondsSet>=0){
-    TimerS.textContent=SecondsSet;
-    TimerM.textContent=MinutesSet;
-    TimerH.textContent=HoursSet;
- 
-    
-    
-  }
-  else{
-    TimerS.textContent="";
-    TimerM.textContent="";
-    TimerH.textContent="";
-  }
+    if (HoursSet >= 0 || MinutesSet >= 0 || SecondsSet >= 0) {
+        TimerS.textContent = SecondsSet;
+        TimerM.textContent = MinutesSet;
+        TimerH.textContent = HoursSet;
+        for (var i = 0; i < Tsplit.length; i++) {
+            Tsplit[i].textContent = ":"
+        }
 
-    
+
+
+    } else {
+        TimerS.textContent = "";
+        TimerM.textContent = "";
+        TimerH.textContent = "";
+        for (var j = 0; j < Tsplit.length; j++) {
+            Tsplit[j].textContent = ""
+        }
+    }
+
+
 
 
 }
@@ -168,3 +174,4 @@ setInterval(function () {
 }, 1000)
 
 timer();
+
