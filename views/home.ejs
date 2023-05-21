@@ -1,64 +1,78 @@
 <%-include("partials/header.ejs")-%>
+<h1>Faeem</h1>
 <div class="Top-Container">
-    <p class="CurrentTime CurrentHours">0</p>
-    <p class="CurrentTime">:</p>
-    <p class="CurrentTime CurrentMinutes">0</p>
-    <p class="CurrentTime">:</p>
-    <p class="CurrentTime CurrentSeconds">0</p>
-
+  <p class="CurrentTime CurrentHours">0</p>
+  <p class="CurrentTime">:</p>
+  <p class="CurrentTime CurrentMinutes">0</p>
+  <p class="CurrentTime">:</p>
+  <p class="CurrentTime CurrentSeconds">0</p>
 </div>
 
-
 <div class="Middle-Container">
-    <div class="Timer">
-        <p name="Hours" class="Hours">0</p>
-        <p class="split">:</p>
-        <p class="Minutes">0</p>
-        <p class="split">:</p>
-        <p class="Seconds">0</p>
-        <p>Timer Set For :</p>
-        <p class="TimerH Hours"></p>
-        <p class="Tsplit"></p>
-        <p class="TimerM Minutes"></p>
-        <p class="Tsplit"></p>
-        <p class="TimerS Seconds"></p>
-
-    </div>
+  <div class="Timer">
+    <p name="Hours" class="Hours">0</p>
+    <p class="split">:</p>
+    <p class="Minutes">0</p>
+    <p class="split">:</p>
+    <p class="Seconds">0</p>
+    <p>Timer Set For :</p>
+    <p class="TimerH Hours"></p>
+    <p class="Tsplit"></p>
+    <p class="TimerM Minutes"></p>
+    <p class="Tsplit"></p>
+    <p class="TimerS Seconds"></p>
+  </div>
 </div>
 
 <div class="interactions">
-    <button class="Pause btn btn-warning">Play</button>
-    <button class="Restart btn btn-danger">Reset</button>
+  <button class="Pause btn btn-warning">Play</button>
+  <button class="Restart btn btn-danger">Reset</button>
 
-    <form action="/save" method="post">
-        <button class="btn btn-success" type="submit">save</button>
-        <textarea class="textHours" name="Hours" id="" cols="3" rows="1" meth></textarea>
-        <textarea class="textMinutes" name="Minutes" id="" cols="3" rows="1" meth></textarea>
-        <textarea class="textSeconds" name="Seconds" id="" cols="3" rows="1" meth></textarea>
-
-    </form>
-
+  <form action="/save" method="post">
+    <button class="btn btn-success" type="submit">save</button>
+    <textarea
+      class="textHours"
+      name="Hours"
+      id=""
+      cols="3"
+      rows="1"
+      meth
+    ></textarea>
+    <textarea
+      class="textMinutes"
+      name="Minutes"
+      id=""
+      cols="3"
+      rows="1"
+      meth
+    ></textarea>
+    <textarea
+      class="textSeconds"
+      name="Seconds"
+      id=""
+      cols="3"
+      rows="1"
+      meth
+    ></textarea>
+  </form>
 </div>
 
 <form class="setTimer" action="/setTimer" method="post">
-    <input type="number" name="Hours" value="0" placeholder="Set Hours">
-    <input type="number" name="Minutes" value="0" placeholder="Set Minutes">
-    <input type="number" name="Seconds" value="0" placeholder="Set Seconds">
-    <button class="btn btn-light" type="submit">Submit</button>
-
+  <input type="number" name="Hours" value="0" placeholder="Set Hours" />
+  <input type="number" name="Minutes" value="0" placeholder="Set Minutes" />
+  <input type="number" name="Seconds" value="0" placeholder="Set Seconds" />
+  <button class="btn btn-light" type="submit">Submit</button>
 </form>
 
-
-
 <div class="setTimer">
-    <p class="setHours textHours"><%=SWHours%></p>
-    <p class="setMinutes textMinutes"><%=SWMinutes%></p>
-    <p class="setSeconds textSeconds"><%=SWSeconds%></p>
+  <p class="setHours textHours"><%=SWHours%></p>
+  <p class="setMinutes textMinutes"><%=SWMinutes%></p>
+  <p class="setSeconds textSeconds"><%=SWSeconds%></p>
 </div>
 
-
 <% for(var i=0;i<times.length;i++){%>
-<p class="TimeOutPut"><%=times[i].Hours%> :<%=times[i].Minutes%> : <%=times[i].Seconds%></p>
-<%}%>
-
-    <%-include("partials/footer.ejs")-%>
+  <p class="TimeOutPut">
+    <%=times[i].Hours%> :<%=times[i].Minutes%> : <%=times[i].Seconds%>
+  </p>
+  <%}%> <%-include("partials/footer.ejs")-%></times.length;i++){%
+>
